@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190109234645) do
+ActiveRecord::Schema.define(version: 20190117213613) do
 
   create_table "challenges", force: :cascade do |t|
     t.string "name"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20190109234645) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "weights", force: :cascade do |t|
+    t.float "weight"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
 end
