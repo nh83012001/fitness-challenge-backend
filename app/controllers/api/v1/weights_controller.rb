@@ -1,6 +1,7 @@
-class Api::V1::UsersController < ActionController::API
+class Api::V1::WeightsController < ActionController::API
 
   def index
+    # byebug
     @user= User.find(params[:user_id])
     @weights = @user.weights
     # byebug
@@ -14,8 +15,10 @@ class Api::V1::UsersController < ActionController::API
   end
 
   def create
-    @weight = Weight.create(weight: params[:weight], date: params[:date], owner_id: params[:owner_id])
-    render json: @user
+    @user= User.find(params[:user_id])
+    @weight = Weight.create(weight: params[:weight], date: params[:date], user_id: params[:user_id])
+    # byebug
+    render json: @user.weights
   end
 
   def update
